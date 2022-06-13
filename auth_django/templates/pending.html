@@ -1,0 +1,47 @@
+<html>
+    <head>
+        
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    {% if pending_book %} 
+                        <table class="table table-bordered text-center">
+                            <thead class="bg-success">
+                                <br>
+                                <h4 class="text-center">Pending list</h4>
+                                <tr>
+                                    <td>student name</td>
+                                    <td>book name</td>
+                                    <td>requested date</td>
+                                    <td>status</td>
+                                    <td>Action</td>
+                                                    
+                                </tr>
+                            </thead>
+                            <tbody class="bg-secondary">
+                                {% for obj in pending_book %}
+                                <tr>
+                                    <td>{{obj.student_name}}</td>
+                                    <td>{{obj.book_name}}</td>
+                                    <td>{{obj.request_date}}</td>
+                                    <td>{{obj.status}}</td>
+                                    <td>
+                                        <a href="{% url 'approvebook' obj.id %}">Approve</a>
+                                        <a href="{% url 'decline' obj.id %}">Decline</a>
+                                    </td>
+                                                       
+                                </tr> 
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    {% else %}
+                        <h3>No data Available</h3>
+                    {% endif %}
+                    </table>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,28 @@
+<html>
+    <head>
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="offset-md-3 col-md-6">
+                    <form method="POST">
+                        {% csrf_token %}
+                        <br>
+                        <h3>Add new book</h3>
+                        <br>
+                        <input type="text" name="bname" placeholder="book name">
+                        <br>
+                        <br>
+                        <input type="text" name="aname" placeholder="author name">
+                        <br>
+                        <br>
+                        <input type="date" name="date" placeholder="published_date">
+                        <br>
+                        <br>
+                        <input type="submit" value="send" class="btn btn-lg btn-success">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

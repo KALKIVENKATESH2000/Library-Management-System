@@ -1,0 +1,64 @@
+<html>
+    <head>
+        
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="/issuebook">Issue book</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link" href="/add">Add book</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/logout">Logout</a>
+                </li>
+                
+              </ul>
+            </div>
+          </nav>
+
+
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="text-center">Welcome {{user.username}}</h3>
+                    {% if book %} 
+                        <table class="table table-bordered text-center">
+                            <thead class="bg-success">
+                                <tr>
+                                    <td>Book</td>
+                                    <td>Author</td>
+                                    <td>Published date</td>
+                                    <td>Count</td>
+                                    <td>Action</td>                 
+                                </tr>
+                            </thead>
+                            <tbody class="bg-secondary">
+                                {% for obj in book %}
+                                <tr>
+                                    <td>{{obj.bookname}}</td>
+                                    <td>{{obj.author}}</td>
+                                    <td>{{obj.published}}</td>
+                                    <td>{{obj.bookcount}}</td>
+                                    <td>
+                                        <a href="{% url 'delete' obj.id %}">Delete</a>
+                                        <a href="{% url 'update' obj.id %}">Update</a>
+                                    </td>                        
+                                </tr> 
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    {% else %}
+                        <h3>No data Available</h3>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        
+    </body>
+</html>

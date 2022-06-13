@@ -1,0 +1,41 @@
+<html>
+    <head>
+        
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="text-center">Welcome {{user.username}}</h3>
+                    {% if book %} 
+                        <table class="table table-bordered text-center">
+                            <thead class="bg-success">
+                                <tr>
+                                    <td>Book</td>
+                                    <td>Author</td>
+                                    <td>Published date</td>
+                                    <td>Count</td>
+                                                    
+                                </tr>
+                            </thead>
+                            <tbody class="bg-secondary">
+                                {% for obj in book %}
+                                <tr>
+                                    <td>{{obj.bookname}}</td>
+                                    <td>{{obj.author}}</td>
+                                    <td>{{obj.published}}</td>
+                                    <td>{{obj.bookcount}}</td>
+                                                       
+                                </tr> 
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    {% else %}
+                        <h3>No data Available</h3>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        
+    </body>
+</html>
